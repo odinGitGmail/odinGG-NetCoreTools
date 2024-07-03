@@ -1,0 +1,106 @@
+{
+  "name": "odingg-netcoretools",
+  "displayName": "odinGG-NetCoreTools",
+  "description": "odinGG NetCoreTools vscode visx",
+  "version": "1.0.0",
+  "icon": "assets/avatar.png",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/odinGitGmail/odinGG-NetCoreTools.git"
+  },
+  "publisher": "odinsam",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/odinGitGmail/odinGG-NetCoreTools/issues"
+  },
+  "homepage": "https://github.com/odinGitGmail/odinGG-NetCoreTools#readme",
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.buildCsproj",
+        "title": "Build .NET Core Project"
+      },
+      {
+        "command": "extension.runCsproj",
+        "title": "Run .NET Core Project"
+      },
+      {
+        "command": "extension.cleanCsproj",
+        "title": "Clean .NET Core Project"
+      },
+      {
+        "command": "extension.buildSolution",
+        "title": "Build .NET Core Solution"
+      },
+      {
+        "command": "extension.runSolution",
+        "title": "Run .NET Core Solution"
+      },
+      {
+        "command": "extension.cleanSolution",
+        "title": "Clean .NET Core Solution"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "extension.buildCsproj",
+          "when": "resourceExtname == .csproj",
+          "group": "navigation"
+        },
+        {
+          "command": "extension.runCsproj",
+          "when": "resourceExtname == .csproj",
+          "group": "navigation"
+        },
+        {
+          "command": "extension.cleanCsproj",
+          "when": "resourceExtname == .csproj",
+          "group": "navigation"
+        },
+        {
+          "command": "extension.buildSolution",
+          "when": "resourceExtname == .sln",
+          "group": "navigation"
+        },
+        {
+          "command": "extension.runSolution",
+          "when": "resourceExtname == .sln",
+          "group": "navigation"
+        },
+        {
+          "command": "extension.cleanSolution",
+          "when": "resourceExtname == .sln",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "release": "standard-version",
+    "changelog": "conventional-changelog -i CHANGELOG.md -s -r 0",
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test",
+    "build": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.4.0"
+  }
+}
