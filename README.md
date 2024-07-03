@@ -14,12 +14,14 @@ Fast way to build, run and test .NET Core (C#, F#) project
 
 ### Prerequisites
 
-    - [.NET Core](https://dotnet.microsoft.com/en-us/download) is installed
+- [.NET Core](https://dotnet.microsoft.com/en-us/download) is installed
 
 ### Usage
 
-    - Open a .NET Core project, right click on a .csproj, .fsproj or .sln file, and run .NET Core command from context menu.
+- Open a .NET Core project, right click on a .csproj, .fsproj or .sln file, and run .NET Core command from context menu.
+
+[![](eg.gif)]
 
 ### Change Log
 
-    See Change Log [here](https://dotnet.microsoft.com/en-us/download)
+    See Change Log [here](./CHANGELOG.md)
