@@ -49,10 +49,22 @@
       {
         "command": "extension.cleanSolution",
         "title": "Clean .NET Core Solution"
+      },
+      {
+        "command": "extension.dotnetNewSln",
+        "title": "新建 solution"
+      },
+      {
+        "command": "extension.dotnetNewPrj",
+        "title": "新建 Project"
       }
     ],
     "menus": {
       "explorer/context": [
+        {
+          "submenu": "dotnetNew",
+          "group": "navigation"
+        },
         {
           "command": "extension.buildCsproj",
           "when": "resourceExtname == .csproj",
@@ -83,8 +95,24 @@
           "when": "resourceExtname == .sln",
           "group": "navigation"
         }
+      ],
+      "dotnetNew":[
+        {
+          "command": "extension.dotnetNewSln",
+          "group": "dotnetNew@1"
+        },
+        {
+          "command": "extension.dotnetNewPrj",
+          "group": "dotnetNew@2"
+        }
       ]
-    }
+    },
+    "submenus": [
+      {
+        "id": "dotnetNew",
+        "label": "Dotnet New"
+      }
+    ]
   },
   "scripts": {
     "release": "standard-version",

@@ -1,5 +1,6 @@
 const cp = require('child_process');
 const vscode = require('vscode');
+const prjSelect = require('./src/dotnetNewPrjSelect')
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 
@@ -32,14 +33,48 @@ function activate(context) {
 	context.subscriptions.push(vscode.commands.registerCommand('extension.cleanSolution', (uri) => {
 		dotNetTools(uri, "clean");
 	}));
+
+	context.subscriptions.push(vscode.commands.registerCommand('extension.dotnetNewSln', (uri) => {
+		vscode.window.showInputBox({
+			password:false,
+			placeHolder:"sln名称"
+		}).then((value)=>{
+			let slnName = value;
+			if(slnName!==''){
+				dotNetTools(uri, "newsln", `${slnName}`);
+			}
+		})
+		// 
+	}));
+	context.subscriptions.push(vscode.commands.registerCommand('extension.dotnetNewPrj', (uri) => {
+		const pickSelect = prjSelect.dotnetNewPrjSelect();
+		vscode.window.showQuickPick(pickSelect).then(()=>{
+
+		});
+		// vscode.window.showInputBox({
+		// 	password:false,
+		// 	placeHolder:"sln名称"
+		// }).then((value)=>{
+		// 	let slnName = value;
+		// 	if(slnName!==''){
+		// 		dotNetTools(uri, "newsln", `${slnName}`);
+		// 	}
+		// })
+		// 
+	}));
 }
 
 // This method is called when your extension is deactivated
 function deactivate() { }
 
-function dotNetTools(commandPath, command) {
+function dotNetTools(commandPath, command, args) {
 	let projectPath = commandPath.fsPath;
 	switch(command){
+		case "newsln":
+			dotnetRunTerminal.show();
+			// 向终端发送命令
+			dotnetRunTerminal.sendText(`dotnet new sln --name ${args}`);
+			break;
 		case "run":
 			dotnetRunTerminal.show();
 			// 向终端发送命令
