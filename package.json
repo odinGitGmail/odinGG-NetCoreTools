@@ -52,48 +52,92 @@
       },
       {
         "command": "extension.dotnetNewSln",
-        "title": "新建 solution"
+        "title": "Create Solution"
       },
       {
         "command": "extension.dotnetNewPrj",
-        "title": "新建 Project"
+        "title": "Create Project"
+      },
+      {
+        "command": "extension.dotnetNewPrjAddInSln",
+        "title": "Create Project Add In Solution"
+      },
+      {
+        "command": "extension.dotnetNewPrjAddInSln",
+        "title": "Create Project Add In Solution"
+      },
+      {
+        "command": "extension.addCsprojInSln",
+        "title": "Add Project In Soluation"
+      },
+      {
+        "command": "extension.removeCsproj",
+        "title": "Remove Project from Soluation"
+      },
+      {
+        "command": "extension.dotnetNewFile",
+        "title": "Dotnet New File In Folder"
+      },
+      {
+        "command": "extension.testCommand",
+        "title": "Test Command"
       }
     ],
     "menus": {
       "explorer/context": [
         {
+          "submenu": "dotnetNewAddInSln",
+          "group": "navigation@2",
+          "when": "resourceExtname == .sln"
+        },
+        {
           "submenu": "dotnetNew",
+          "group": "navigation@1",
+          "when":"explorerResourceIsFolder"
+        },
+        {
+          "command": "extension.testCommand",
           "group": "navigation"
         },
         {
           "command": "extension.buildCsproj",
           "when": "resourceExtname == .csproj",
-          "group": "navigation"
+          "group": "navigation@3"
         },
         {
           "command": "extension.runCsproj",
           "when": "resourceExtname == .csproj",
-          "group": "navigation"
+          "group": "navigation@4"
         },
         {
           "command": "extension.cleanCsproj",
           "when": "resourceExtname == .csproj",
-          "group": "navigation"
+          "group": "navigation@5"
         },
         {
           "command": "extension.buildSolution",
           "when": "resourceExtname == .sln",
-          "group": "navigation"
+          "group": "navigation@5"
         },
         {
           "command": "extension.runSolution",
           "when": "resourceExtname == .sln",
-          "group": "navigation"
+          "group": "navigation@4"
         },
         {
           "command": "extension.cleanSolution",
           "when": "resourceExtname == .sln",
-          "group": "navigation"
+          "group": "navigation@5"
+        },
+        {
+          "command": "extension.addCsprojInSln",
+          "when": "resourceExtname == .csproj",
+          "group": "navigation@6"
+        },
+        {
+          "command": "extension.removeCsproj",
+          "when": "resourceExtname == .csproj",
+          "group": "navigation@7"
         }
       ],
       "dotnetNew":[
@@ -104,13 +148,27 @@
         {
           "command": "extension.dotnetNewPrj",
           "group": "dotnetNew@2"
+        },
+        {
+          "command": "extension.dotnetNewFile",
+          "group": "dotnetNew@3"
+        }
+      ],
+      "dotnetNewAddInSln":[
+        {
+          "command": "extension.dotnetNewPrjAddInSln",
+          "group": "dotnetNew@2"
         }
       ]
     },
     "submenus": [
       {
         "id": "dotnetNew",
-        "label": "Dotnet New"
+        "label": "DotNet New"
+      },
+      {
+        "id": "dotnetNewAddInSln",
+        "label": "Dotnet New Add In Solution"
       }
     ]
   },
