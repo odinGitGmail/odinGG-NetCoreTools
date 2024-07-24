@@ -48,7 +48,7 @@ function dotNetTool(commandPath, command, args) {
 		case "run":
 			dotnetRunTerminal.show();
 			// 向终端发送命令
-			dotnetRunTerminal.sendText(`dotnet run ${projectPath}`);
+			dotnetRunTerminal.sendText(`dotnet run --project ${projectPath}`);
 			break;
 		default:
 			outputChannel.clear();

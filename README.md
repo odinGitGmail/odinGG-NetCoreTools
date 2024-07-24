@@ -25,3 +25,7 @@ Fast way to build, run and test .NET Core (C#, F#) project
 ### Change Log
 
     See Change Log [here](./CHANGELOG.md)
+
+### v1.0.2
+
+    - 新增创建sln和project

@@ -77,10 +77,6 @@
       {
         "command": "extension.dotnetNewFile",
         "title": "Dotnet New File In Folder"
-      },
-      {
-        "command": "extension.testCommand",
-        "title": "Test Command"
       }
     ],
     "menus": {
@@ -94,10 +90,6 @@
           "submenu": "dotnetNew",
           "group": "navigation@1",
           "when":"explorerResourceIsFolder"
-        },
-        {
-          "command": "extension.testCommand",
-          "group": "navigation"
         },
         {
           "command": "extension.buildCsproj",
