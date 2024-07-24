@@ -2,7 +2,7 @@
   "name": "odingg-netcoretools",
   "displayName": "odinGG-NetCoreTools",
   "description": "odinGG NetCoreTools vscode visx",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "icon": "assets/avatar.png",
   "engines": {
     "vscode": "^1.90.0"
@@ -173,8 +173,7 @@
     ]
   },
   "scripts": {
-    "release": "standard-version",
-    "changelog": "conventional-changelog -i CHANGELOG.md -s -r 0",
+    "genChangeLog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "vscode-test",
