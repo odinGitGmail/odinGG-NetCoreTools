@@ -28,6 +28,22 @@ const findFileByExtenionDown = async (directory, fileExtenionName)=>{
 }
 
 // 递归遍历目录，查找 扩展名 文件
+const findAllFileByExtenionDown = async (dirPath, fileExtenionName, callback)=>{
+    fs.readdir(dirPath).then(dirContents=>{
+        dirContents.forEach(dc=>{
+            let fullPath = path.join(dirPath, dc);
+            fs.stat(fullPath).then(stats => {
+                if (stats.isDirectory()) {
+                    findAllFileByExtenionDown(fullPath, fileExtenionName, callback);
+                } else if (path.extname(fullPath) === `.${fileExtenionName}`) {
+                    callback(fullPath);
+                }
+            });
+        })
+    });
+}
+
+// 递归遍历目录，查找 扩展名 文件
 const findFileByExtenionUp = async (directory, fileExtenionName)=>{
     try {
         const files = await fs.readdir(directory);
@@ -63,5 +79,6 @@ const isDirectory = async (directory) => {
 module.exports={
     findFileByExtenionDown,
     findFileByExtenionUp,
+    findAllFileByExtenionDown,
     isDirectory,
 }

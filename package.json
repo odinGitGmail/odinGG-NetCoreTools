@@ -2,7 +2,7 @@
   "name": "odingg-netcoretools",
   "displayName": "odinGG-NetCoreTools",
   "description": "odinGG NetCoreTools vscode visx",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "icon": "assets/avatar.png",
   "engines": {
     "vscode": "^1.90.0"
@@ -77,6 +77,10 @@
       {
         "command": "extension.dotnetNewFile",
         "title": "Dotnet New File In Folder"
+      },
+      {
+        "command": "extension.renamespace",
+        "title": "Rename NameSpace"
       }
     ],
     "menus": {
@@ -90,6 +94,11 @@
           "submenu": "dotnetNew",
           "group": "navigation@1",
           "when":"explorerResourceIsFolder"
+        },
+        {
+          "submenu": "reconfiguration",
+          "group": "navigation@2",
+          "when":"explorerResourceIsFolder || resourceExtname == .cs"
         },
         {
           "command": "extension.buildCsproj",
@@ -132,6 +141,12 @@
           "group": "navigation@7"
         }
       ],
+      "reconfiguration":[
+        {
+          "command": "extension.renamespace",
+          "group": "reconfiguration@1"
+        }
+      ],
       "dotnetNew":[
         {
           "command": "extension.dotnetNewSln",
@@ -161,6 +176,10 @@
       {
         "id": "dotnetNewAddInSln",
         "label": "Dotnet New Add In Solution"
+      },
+      {
+        "id": "reconfiguration",
+        "label": "重构"
       }
     ]
   },
